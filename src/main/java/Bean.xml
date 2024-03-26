@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+
+
+<bean id="emp" class="com.SimpleSpring.beanSetterInjection.Employee">
+	   <property name="empId"  value="11"></property>
+	   <property name="empName" value="Sneha"></property>
+	   <property name="empEmail" value="sneha@gmail.com"></property>
+   </bean>
+   
+   <bean id="student" class="com.SimpleSpring.beanSetterInjection.Student">
+	   <property name="rollNum" value="12"></property>
+	   <property name="name" value="sneha"></property>
+	   <property name="Address">
+		   <list>
+			   <value>HO,Frankfurt</value>
+			   <value>Ziel,frankfurt</value>	   
+		   </list>	   
+	   </property>
+	   <property name="add">
+		   <map>
+			   <entry key="add1" value="abc,pune"></entry>
+			   <entry key="add2" value="pqr, mumbai"></entry>
+			   <entry key="add3"  value="xyz,delhi"></entry>
+			   
+		   </map>
+		   
+	   </property>
+   </bean>
+   
+   <bean id="empcon" class="com.SimpleSpring.beanconstructorInjection.EmpConstructor">
+	   <constructor-arg name="empId" value="11"></constructor-arg>
+	   <constructor-arg name="empName" value="abc"></constructor-arg>
+	   <constructor-arg name="empEmail" value="abc@gmail.com"></constructor-arg>
+	   
+   </bean>
+   
+    <bean id="studcon" class="com.SimpleSpring.beanconstructorInjection.StudConstructor">
+	   <constructor-arg name="rollNum" value="11"></constructor-arg>
+	   <constructor-arg name="name" value="abc"></constructor-arg>
+	   <constructor-arg>
+		   <list>
+			   <value>aa,bb</value>
+			   <value>ss,dd</value>
+		   </list>
+	   </constructor-arg>
+	   
+	   <constructor-arg>
+		   <map>
+			   <entry key="first" value="pune,abc"></entry>
+			   <entry key="second" value="mumbai,pqr"></entry>
+		   </map>
+		   
+	   </constructor-arg>
+	   
+   </bean>
+   
+<!--   doing autowiring manualy
+-->  <!-- <bean id="heartObj" class="com.SimpleSpring.autowiring.Heart"></bean>
+   <bean id="human" class="com.SimpleSpring.autowiring.Human">
+	   <property name="heart" ref="heartObj"></property>
+   </bean>-->
+   
+<!--   doing autowire byName
+-->  <!-- <bean id="heart" class="com.SimpleSpring.autowiring.Heart"></bean>
+   <bean id="human" class="com.SimpleSpring.autowiring.Human" autowire="byName"></bean>-->
+   
+<!--   autowire byType
+-->    <!--<bean id="heartObject" class="com.SimpleSpring.autowiring.Heart"></bean>
+   <bean id="human" class="com.SimpleSpring.autowiring.Human" autowire="byType"></bean>-->
+   
+<!--   autowire by constructor
+-->   <!--<bean id="heartObject" class="com.SimpleSpring.autowiring.Heart"></bean>
+   <bean id="human" class="com.SimpleSpring.autowiring.Human" autowire="constructor"></bean>-->
+   
+<!--   autowire by annotation
+-->   <bean id="heartObject" class="com.SimpleSpring.autowiring.Heart"></bean>
+   <bean id="human" class="com.SimpleSpring.autowiring.Human"></bean>
+   
+   
+</beans>
